@@ -46,7 +46,7 @@ public class ECHashTable {
 
     public void find(String voter_id){
         if(voter2cand.get(voter_id) != null){
-            System.out.println("Candidate Id: " + voter2cand.get(voter_id));
+            System.out.println("Candidate Id(HT): " + voter2cand.get(voter_id));
         }
         else{
             System.out.println("Invalid Voter");

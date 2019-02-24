@@ -61,14 +61,17 @@ public class RunApp {
 //	Scenario-2 Hash Table implementation
 		ECHashTable ec = new ECHashTable();
 		ec.add(bf, chf);
-		System.out.println("Enter Voter Id: ");
-		voter_id = input.nextLine();
+		System.out.print("Enter Voter Id(HT): ");
+		voter_id = input.next();
 		ec.find(voter_id.trim());
 
 
 // Scenario-3 Direct Addressing implementation
 		ECDirectAddressing ecd = new ECDirectAddressing(1000000);
 		ecd.add(bf, chf);
+		System.out.print("Enter Voter Id(DA): ");
+		voter_id = input.next();
+		ecd.find(voter_id.trim());
 
 
 	}
