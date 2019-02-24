@@ -29,7 +29,7 @@ public class RunApp {
 //	Scenario-1 Bloom filter creation
 		try {
 			while ((l = br.readLine()) != null) {
-				bf.add(l, chf); //Adding elements from file voterid to bloomfilter.
+				bf.add(l.trim(), chf); //Adding elements from file voterid to bloomfilter.
 			}
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
