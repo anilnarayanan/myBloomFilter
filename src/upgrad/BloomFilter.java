@@ -12,7 +12,7 @@ import java.util.BitSet;
 public class BloomFilter {
 	BitSet bs;//BloomFilter array of bits
 	
-	CustomHashFunction chf;
+//	CustomHashFunction chf;
 	int collisionCount = 0;
 	int hash1, hash2, hash3, hash4, hash5, hash6, hash7; //hash function values
 	int size; //size of the bloom filter
@@ -24,13 +24,13 @@ public class BloomFilter {
 		 */
 		bs = new BitSet(x);
 		bs.clear();
-		chf = new CustomHashFunction();
+//		chf = new CustomHashFunction();
 		size = bs.size();
 		System.out.println("Size: " + size);
 		numHashFunctions = y;
 	}
 	
-	public boolean isPresent(String x) {
+	public boolean isPresent(String x, CustomHashFunction chf) {
 		/***
 		 * This function returns true is x is present and false if x is not present-
 		 * according to bloom filter.
@@ -54,11 +54,11 @@ public class BloomFilter {
 		return true;
 	}
 	
-	public void add(String x) {
+	public void add(String x, CustomHashFunction chf) {
 		/***
 		 * Build the bloom filter by adding the elements to it
 		 */
-		if(isPresent(x)) {
+		if(isPresent(x, chf)) {
 			collisionCount++;
 		}
 		

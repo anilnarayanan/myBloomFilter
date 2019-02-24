@@ -13,11 +13,11 @@ public class ECHashTable {
         br = null;
     }
 
-    public void add(BloomFilter bf){
+    public void add(BloomFilter bf, CustomHashFunction chf){
         String fileLocation1 = "/home/anushka/Downloads/BloomFilterApp/data/votersCandList.txt";
         String l = null;
-        CustomHashFunction chf = new CustomHashFunction();
-        int hash1, hash2; //hash function values
+//        CustomHashFunction chf = new CustomHashFunction();
+//        int hash1, hash2; //hash function values
         String[] keyval;
         String key;
 
@@ -32,7 +32,7 @@ public class ECHashTable {
         try {
             while((l = br.readLine()) != null) {
                 keyval = l.split(" ");
-                if(bf.isPresent(keyval[0])){
+                if(bf.isPresent(keyval[0], chf)){
                     voter2cand.put(keyval[0], keyval[1]);
                     numFalsePos++;
                 }
