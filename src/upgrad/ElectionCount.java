@@ -51,11 +51,12 @@ public class ElectionCount {
                     valid++;
                     writer_valid.write(keyval[0]);
                     writer_valid.newLine();
+                    numFalsePos++;
                 }
                 else{
 //                    System.out.println("Invalid: " + keyval[0]);
                     invalid++;
-                    numFalsePos++;
+
                     writer_invalid.write(keyval[0]);
                     writer_invalid.newLine();
                 }
@@ -75,7 +76,7 @@ public class ElectionCount {
 //       }
         System.out.println("Valid: " + valid);
         System.out.println("Invalid: " + invalid);
-        System.out.println("Total number of false positives are " + numFalsePos);
+//        System.out.println("Total number of false positives are " + numFalsePos);
     }
 
     public void find(String voter_id){
