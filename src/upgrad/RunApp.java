@@ -11,12 +11,12 @@ public class RunApp {
 		//List of weak passwords
 		String fileLocation1 = "/home/anushka/Downloads/BloomFilterApp/data/validVotersList.txt";
 		Scanner input = new Scanner(System.in);
-		int counter = 500000; // to use 2/3 to build bloom filter and use 1/3 to test the bloom filter.
-		int initial_counter = counter;
-		int numFalsePos = 0;
+//		int counter = 500000; // to use 2/3 to build bloom filter and use 1/3 to test the bloom filter.
+//		int initial_counter = counter;
+//		int numFalsePos = 0;
 		String l = null;
 		String voter_id = null;
-		BloomFilter bf = new BloomFilter(7298441, 2);
+		BloomFilter bf = new BloomFilter(7298441, 7);
 
 		try {
 			br = new BufferedReader(new FileReader(fileLocation1));
@@ -28,9 +28,8 @@ public class RunApp {
 
 		try {
 			while((l = br.readLine()) != null) {
-//				if(counter > initial_counter/3) {
-
-				bf.add(l);
+//				if(counter > initial_counter) {
+					bf.add(l);
 //				}
 //				else {
 //					if(bf.isPresent(l)) {
@@ -44,7 +43,7 @@ public class RunApp {
 			e.printStackTrace();
 		}
 		System.out.println("total number of collisions while building a bloom filter are " + bf.collisionCount);
-		System.out.println("Total number of false positives are " + numFalsePos);
+//		System.out.println("Total number of false positives are " + numFalsePos);
 
 
 //		================================================================

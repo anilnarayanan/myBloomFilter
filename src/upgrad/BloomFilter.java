@@ -37,9 +37,14 @@ public class BloomFilter {
 		 */
 		hash1 = chf.genHash(x);
 		hash2 = chf.genHash2(x);
+		hash3 = chf.genHash3(x);
+		hash4 = chf.genHash4(x);
+		hash5 = chf.genHash5(x);
+		hash6 = chf.genHash6(x);
+		hash7 = chf.genHash7(x);
 
 		for(int i = 1; i <= numHashFunctions; i++) {
-            if (bs.get(Math.abs((hash1 + i * hash2) % size))) {
+            if (bs.get(Math.abs((hash1 + i * hash2 + i*hash3 + i*hash4 + i*hash5 + i*hash6 + i*hash7) % size))) {
                 continue;
             } else {
                 return false;
@@ -56,21 +61,16 @@ public class BloomFilter {
 //			collisionCount++;
 //		}
 		
-		hash1 = Math.abs(chf.genHash(x));
-		hash2 = Math.abs(chf.genHash2(x));
-//        hash3 = Math.abs(chf.genHash3(x)%10);
-//        hash4 = chf.genHash4(x);
-//        hash5 = chf.genHash5(x);
-//        hash6 = chf.genHash6(x);
-//        hash7 = chf.genHash7(x);
-//		System.out.println(hash1);
-//		System.out.println(hash2);
-//		System.out.println(hash3);
+		hash1 = chf.genHash(x);
+		hash2 = chf.genHash2(x);
+        hash3 = chf.genHash3(x);
+        hash4 = chf.genHash4(x);
+        hash5 = chf.genHash5(x);
+        hash6 = chf.genHash6(x);
+        hash7 = chf.genHash7(x);
+
 		for(int i = 1; i <= numHashFunctions; i++) {
-			bs.set(Math.abs((hash1 + i *hash2) % size));
-//			bs.set(Math.abs((hash1) % size));
-//			bs.set(Math.abs((hash2) % size));
-//			bs.set(Math.abs((hash3) % size));
+			bs.set(Math.abs((hash1 + i *hash2 + i*hash3 + i*hash4 + i*hash5 + i*hash6 + i*hash7) % size));
 		}
 	}
 	

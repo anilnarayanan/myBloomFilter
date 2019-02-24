@@ -13,7 +13,7 @@ public class CustomHashFunction {
 		for(int i = 0; i < s.length(); i++) {
 			a = (prime * a) + s.charAt(i) + hash;
 		}
-		return a;
+        return a;
 	}
 
 	

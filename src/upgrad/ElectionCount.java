@@ -31,6 +31,7 @@ public class ElectionCount {
         int valid =0, invalid = 0;
         BufferedWriter writer_valid;
         BufferedWriter writer_invalid;
+        int numFalsePos = 0;
 
         try {
           br = new BufferedReader(new FileReader(fileLocation1));
@@ -54,6 +55,7 @@ public class ElectionCount {
                 else{
 //                    System.out.println("Invalid: " + keyval[0]);
                     invalid++;
+                    numFalsePos++;
                     writer_invalid.write(keyval[0]);
                     writer_invalid.newLine();
                 }
@@ -65,14 +67,15 @@ public class ElectionCount {
             e.printStackTrace();
         }
 
-        values = voter2cand.keys();
-        while(values.hasMoreElements()){
-           key = (String) values.nextElement();
-           System.out.println("Key: " +key+ " & Value: " +
-           voter2cand.get(key));
-       }
+//        values = voter2cand.keys();
+//        while(values.hasMoreElements()){
+//           key = (String) values.nextElement();
+//           System.out.println("Key: " +key+ " & Value: " +
+//           voter2cand.get(key));
+//       }
         System.out.println("Valid: " + valid);
         System.out.println("Invalid: " + invalid);
+        System.out.println("Total number of false positives are " + numFalsePos);
     }
 
     public void find(String voter_id){
