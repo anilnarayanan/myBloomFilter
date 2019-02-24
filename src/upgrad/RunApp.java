@@ -26,10 +26,10 @@ public class RunApp {
 			e.printStackTrace();
 		}
 		
-
+// Scenario-1 Bloom filter creation
 		try {
 			while((l = br.readLine()) != null) {
-					bf.add(l);
+					bf.add(l); //Adding elements from file voterid to bloomfilter.
 			}
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
@@ -59,7 +59,7 @@ public class RunApp {
 
 
 //		================================================================
-		ElectionCount ec = new ElectionCount();
+		ECHashTable ec = new ECHashTable();
 		ec.add(bf);
 		System.out.println("Enter Voter Id: ");
 		voter_id = input.nextLine();
